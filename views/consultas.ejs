@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Consulta Alumno</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-danger text-center">Detalle del Alumno</h2>
+        <a href="/" class="btn btn-secondary mb-3">← Regresar</a>
+        <div class="card p-4">
+            <table class="table table-bordered">
+                <tr><th>Num. Control</th><td><%= alumno.numControl %></td></tr>
+                <tr><th>Nombre</th><td><%= alumno.nombre %></td></tr>
+                <tr><th>Primer Apellido</th><td><%= alumno.primerAp %></td></tr>
+                <tr><th>Segundo Apellido</th><td><%= alumno.segundoAp %></td></tr>
+                <tr><th>Fecha de Nacimiento</th><td><%= alumno.fechaNac %></td></tr>
+                <tr><th>Semestre</th><td><%= alumno.semestre %></td></tr>
+                <tr><th>Carrera</th><td><%= alumno.carrera %></td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Editar Alumno</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-danger text-center">Editar Alumno</h2>
+        <a href="/" class="btn btn-secondary mb-3">← Regresar</a>
+        <div class="card p-4">
+            <input type="hidden" id="alumno_id" value="<%= alumno._id %>" />
+            <div class="mb-3">
+                <label>Numero de Control:</label>
+                <input type="text" id="numControl" class="form-control" value="<%= alumno.numControl %>" readonly />
+            </div>
+            <div class="mb-3">
+                <label>Nombre:</label>
+                <input type="text" id="nombre" class="form-control" value="<%= alumno.nombre %>" />
+            </div>
+            <div class="mb-3">
+                <label>Primer Apellido:</label>
+                <input type="text" id="primerAp" class="form-control" value="<%= alumno.primerAp %>" />
+            </div>
+            <div class="mb-3">
+                <label>Segundo Apellido:</label>
+                <input type="text" id="segundoAp" class="form-control" value="<%= alumno.segundoAp %>" />
+            </div>
+            <div class="mb-3">
+                <label>Fecha de Nacimiento:</label>
+                <input type="text" id="fechaNac" class="form-control" value="<%= alumno.fechaNac %>" />
+            </div>
+            <div class="mb-3">
+                <label>Semestre:</label>
+                <input type="number" id="semestre" class="form-control" value="<%= alumno.semestre %>" />
+            </div>
+            <div class="mb-3">
+                <label>Carrera:</label>
+                <input type="text" id="carrera" class="form-control" value="<%= alumno.carrera %>" />
+            </div>
+            <button class="btn btn-warning" onclick="guardarCambios()">Guardar Cambios</button>
+        </div>
+    </div>
+    <script>
+        function guardarCambios() {
+            const id = document.getElementById('alumno_id').value;
+            const jsonData = {
+                nombre:   document.getElementById('nombre').value,
+                primerAp: document.getElementById('primerAp').value,
+                segundoAp:document.getElementById('segundoAp').value,
+                fechaNac: document.getElementById('fechaNac').value,
+                semestre: document.getElementById('semestre').value,
+                carrera:  document.getElementById('carrera').value
+            };
+            fetch(`/alumnos/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify(jsonData),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(res => res.json())
+            .then(() => window.location.href = '/');
+        }
+    </script>
+</body>
+</html>
