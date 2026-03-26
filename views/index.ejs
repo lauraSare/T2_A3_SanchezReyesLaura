@@ -131,6 +131,7 @@
                             <td>${row.primerAp}</td>
                             <td>${row.segundoAp}</td>
                             <td>
+                                <button class="btn btn-info btn-sm" onclick="window.location.href='/alumnos/${row._id}/detalle'">Ver</button>
                                 <button class="btn btn-warning btn-sm" onclick="detalle('${row._id}')">Editar</button>
                                 <button class="btn btn-danger btn-sm" onclick="eliminar('${row._id}')">Eliminar</button>
                             </td>
